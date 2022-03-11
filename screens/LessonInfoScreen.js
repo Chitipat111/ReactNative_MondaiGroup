@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, SafeAreaView, Picker} from 'react-native';
 
-const LessonInfoScreen = () =>  {
+const LessonInfoScreen = ({navigation}) =>  {
 
   const [selectedValue, setSelectedValue] = useState("basic");
 
@@ -38,7 +38,7 @@ const LessonInfoScreen = () =>  {
           {/*Btn*/}
           <View style={{alignItems:'flex-end', marginTop:45}}>
             <TouchableOpacity style={{width:120, padding:7, backgroundColor:'#202225'}}>
-              <Text style={{color:'white', textAlign: 'center'}}>เริ่มทำแบบฝึกหัด</Text>
+              <Text onPress={()=>{navigation.navigate('QuestionScreen')}} style={{color:'white', textAlign: 'center'}}>เริ่มทำแบบฝึกหัด</Text>
             </TouchableOpacity>
           </View>
         </View>

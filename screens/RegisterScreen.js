@@ -19,7 +19,7 @@ const ValidateSchema = Yup.object().shape({
     .oneOf([Yup.ref('Password')], 'Passwords does not match'),
 });
 
-const RegisterScreen = () => {
+const RegisterScreen = ({navigation}) => {
   return (
     //Mondai
     <SafeAreaView style={{ flex: 1, backgroundColor: '#2F3136' }}>
@@ -129,6 +129,11 @@ const RegisterScreen = () => {
                   </TouchableOpacity>
                 </View>                
                 
+
+                {/* TestBTN */}
+                  <TouchableOpacity onPress={()=>{navigation.navigate('LessonScreen')}}>
+                    <Text style={{textDecorationLine: 'underline'}}>TestBTN Move Lesson</Text>
+                  </TouchableOpacity>
                 
               </Form>
 

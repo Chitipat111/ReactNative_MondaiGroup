@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text, Button, Image, TouchableOpacity, SafeAreaView} from 'react-native';
 
-const ResultScreen = () =>{
+const ResultScreen = ({navigation}) =>{
   return (
     <SafeAreaView style={{flex:1, backgroundColor:'#2F3136'}}>
       {/*Head title*/}
@@ -22,7 +22,7 @@ const ResultScreen = () =>{
       {/*ConfirmBtn*/}
       <View style={{alignItems:'center',marginTop:130}}>
         <TouchableOpacity style={{backgroundColor:'white',width:250,height:50,borderRadius:6,alignItems:'center',justifyContent:'center'}}>
-          <Text style={{color:'black',fontSize:20}}>Back to lesson</Text>
+          <Text onPress={()=>{navigation.navigate('LessonScreen')}} style={{color:'black',fontSize:20}}>Back to lesson</Text>
         </TouchableOpacity>
       </View>
 

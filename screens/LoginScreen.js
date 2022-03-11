@@ -14,7 +14,7 @@ const ValidateSchema = Yup.object().shape({
     .min(6, 'Password must contain at least 6'),
 });
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   return (
     //Mondai
     <SafeAreaView style={{ flex: 1, backgroundColor: '#2F3136' }}>
@@ -103,10 +103,15 @@ const LoginScreen = () => {
                 {/* Register */}
                 <View style={{flexDirection:'row',justifyContent:'flex-end',paddingRight:15,marginTop:20,marginBottom:20}}>
                   <Text>Don’t have an account ?</Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={()=>{navigation.navigate('RegisterScreen')}}>
                     <Text style={{textDecorationLine: 'underline'}}>Register</Text>
                   </TouchableOpacity>
                 </View>
+
+                  {/* TestBTN */}
+                  <TouchableOpacity onPress={()=>{navigation.navigate('LessonScreen')}}>
+                    <Text style={{textDecorationLine: 'underline'}}>TestBTN Move Lesson</Text>
+                  </TouchableOpacity>
                 
               </Form>
 

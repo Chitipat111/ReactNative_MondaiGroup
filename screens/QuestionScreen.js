@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text, Button, Image, TouchableOpacity, SafeAreaView} from 'react-native';
 
-const QuestionScreen = () =>  {
+const QuestionScreen = ({navigation}) =>  {
   return(
     <SafeAreaView style={{flex:1, backgroundColor:'#2F3136'}}>
     {/*Quiz*/}
@@ -31,7 +31,7 @@ const QuestionScreen = () =>  {
     {/*Nextbtn*/}
       <View style={{flex:0.105,backgroundColor:'white',flexDirection:'row',justifyContent:'flex-end',padding:20}}>
         <TouchableOpacity style={{backgroundColor:'#2F3136',width:100,height:35,alignItems:'center',justifyContent:'center',borderRadius:7}}>
-          <Text style={{color:'white'}}>Next</Text>
+          <Text onPress={()=>{navigation.navigate('ResultScreen')}} style={{color:'white'}}>Next</Text>
         </TouchableOpacity>
       </View>
       

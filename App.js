@@ -18,7 +18,7 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='ResultScreen' //รอเปลี่ยน
+      <Stack.Navigator initialRouteName='LoginScreen' //รอเปลี่ยน
       screenOptions={{
         headerStyle: { backgroundColor: '#202225', elevation: 0, shadowOpacity: 0, borderBottomWidth: 0},
         headerTintColor: '#fff',
