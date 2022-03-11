@@ -18,7 +18,7 @@ const ValidateSchema = Yup.object().shape({
     .oneOf([Yup.ref('Password')], 'Passwords does not match'),
 });
 
-const RegisterScreen = () => {
+const RegisterScreen = ({navigation}) => {
   return (
     //Mondai
     <SafeAreaView style={{ flex: 1, backgroundColor: '#2F3136' }}>
@@ -49,10 +49,13 @@ const RegisterScreen = () => {
            password : values.Password
           }
           });
-          alert(JSON.stringify(res['data']))
+          //alert(JSON.stringify(res['data']))
+          alert('Register Successfully');
+          navigation.navigate('LoginScreen')
         } catch (error) { 
-         console.log(error.response)
-        }finally{
+          alert(error.response.data.message);
+          console.log(error.response)
+        } finally{
           setSubmitting(false);
         }}}>
         {({errors,touched,values,handleBlur,handleChange,handleSubmit,isSubmitting}) => (
