@@ -3,7 +3,6 @@ import {  Text,  View,  SafeAreaView,  Button,  TextInput,  TouchableOpacity, Im
 import {  Container,  Form,  Icon,  Content,  Item,  Input,  Label,} from 'native-base';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
-import { FontAwesome } from '@expo/vector-icons';
 import axios from'axios';
 
 const ValidateSchema = Yup.object().shape({
@@ -54,7 +53,7 @@ const SettingScreen = () => {
           
           <View style={{ padding: 25 }}>
             {/*white box*/}
-            <View style={{ backgroundColor:'white',borderRadius:15,marginTop:80}}>
+            <View style={{ backgroundColor:'white',borderRadius:15,marginTop:30}}>
               {/* Profile Pic */}
               <View style={{alignItems:'center',marginTop:20}}>
                 <Image source={require('../assets/User-icon-default.png')} style={{width:105,height:105}}/>
@@ -69,7 +68,7 @@ const SettingScreen = () => {
               {/* OldPassword */}
                 <View style={{marginBottom:10}}>                  
                   <Item fixedLabel error={errors.OldPassword && touched.OldPassword ? true : false}>
-                   <FontAwesome name="lock" size={20} color="black" style={{padding: 5}} /> 
+                    <Icon type="FontAwesome" name="user" /> 
                     <Input value={values.OldPassword} placeholder="OldPassword" onChangeText={handleChange('OldPassword')} onBlur={handleBlur('Password')} secureTextEntry={true} />
                     {errors.OldPassword && touched.OldPassword}
                   </Item>
@@ -86,7 +85,7 @@ const SettingScreen = () => {
                 {/* Password */}
                 <View style={{marginBottom:10}}>                  
                   <Item fixedLabel error={errors.Password && touched.Password ? true : false}>
-                    <FontAwesome name="lock" size={20} color="black" style={{padding: 5}}/> 
+                   <Icon type="FontAwesome" name="user" /> 
                     <Input value={values.Password} placeholder="Password" onChangeText={handleChange('Password')} onBlur={handleBlur('Password')} secureTextEntry={true} />
                     {errors.Password && touched.Password}
                   </Item>
@@ -103,7 +102,7 @@ const SettingScreen = () => {
                 {/* 2ndPassword */}
                 <View style={{marginBottom:25}}>                  
                   <Item fixedLabel error={errors.ScdPassword && touched.ScdPassword ? true : false}>
-                   <FontAwesome name="lock" size={20} color="black" style={{padding: 5}}/>
+                    <Icon type="FontAwesome" name="user" />
                     <Input value={values.ScdPassword} placeholder="Confirm Password" onChangeText={handleChange('ScdPassword')} onBlur={handleBlur('ScdPassword')} secureTextEntry={true} />
                     {errors.ScdPassword && touched.ScdPassword}
                   </Item>
@@ -120,7 +119,7 @@ const SettingScreen = () => {
                 {/* Apply Btn */}
                 <View style={{alignItems:'center',marginTop:30, marginBottom:25}}>
                   <TouchableOpacity onPress={handleSubmit} disabled={isSubmitting} style={{backgroundColor:'#202225',width:200,height:40,alignItems:'center',justifyContent:'center',borderRadius:6}}>
-                    <Text style={{color:'white', fontSize:18}}>Apply Change</Text>
+                    <Text style={{color:'white', fontSize:18}}>Apply Changes</Text>
                   </TouchableOpacity>
                 </View>                
                 

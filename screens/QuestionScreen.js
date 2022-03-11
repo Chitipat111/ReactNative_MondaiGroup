@@ -11,7 +11,7 @@ const QuestionScreen = ({navigation}) =>  {
       </View>
 
     {/*Choice*/}
-      <View style={{flex:1, backgroundColor:'white', marginTop:160}}>
+      <View style={{flex:1, backgroundColor:'white', marginTop:100}}>
         <View style={{marginTop:70,alignItems:'center'}}>
           <TouchableOpacity style={{backgroundColor:'#2F3136',width:250,height:35,borderRadius:7,justifyContent:'center',paddingLeft:15}}>
             <Text style={{color:'white',fontSize:18}}>A) eiei</Text>

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, SafeAreaView, Picker} from 'react-native';
+import { View, Text, Image, TouchableOpacity, SafeAreaView} from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 
 const LessonInfoScreen = ({navigation}) =>  {
 
@@ -16,7 +17,7 @@ const LessonInfoScreen = ({navigation}) =>  {
     {/*dropdowm*/}
       <View style={{alignItems:'center',marginTop:60}}>
         <Picker
-          style={{width:270, height:45, borderRadius:4, textAlign: 'center'}}
+          style={{width:270, height:45, borderRadius:4, textAlign: 'center',backgroundColor:'white'}}
           selectedValue={selectedValue}
           onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
         >

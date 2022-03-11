@@ -5,13 +5,13 @@ const ResultScreen = ({navigation}) =>{
   return (
     <SafeAreaView style={{flex:1, backgroundColor:'#2F3136'}}>
       {/*Head title*/}
-      <View style={{alignItems:'center',marginTop:80}}>
-        <Text style={{fontSize:35, color:'white', fontWeight:400}}>Lesson Complete</Text>
+      <View style={{alignItems:'center',marginTop:30}}>
+        <Text style={{fontSize:35, color:'white', fontWeight:'bold'}}>Lesson Complete</Text>
       </View>
 
       {/*Score*/}
       <View style={{alignItems:'center',marginTop:70}}>
-        <Text style={{fontSize:50, color:'white', fontWeight:500}}>7/10</Text>
+        <Text style={{fontSize:50, color:'white', fontWeight:'bold'}}>7/10</Text>
       </View>
 
       {/*Image*/}
@@ -20,7 +20,7 @@ const ResultScreen = ({navigation}) =>{
       </View>
 
       {/*ConfirmBtn*/}
-      <View style={{alignItems:'center',marginTop:130}}>
+      <View style={{alignItems:'center',marginTop:100}}>
         <TouchableOpacity style={{backgroundColor:'white',width:250,height:50,borderRadius:6,alignItems:'center',justifyContent:'center'}}>
           <Text onPress={()=>{navigation.navigate('LessonScreen')}} style={{color:'black',fontSize:20}}>Back to lesson</Text>
         </TouchableOpacity>

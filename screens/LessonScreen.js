@@ -5,8 +5,8 @@ const LessonScreen = ({navigation}) =>  {
   return(
     <SafeAreaView style={{flex:1,backgroundColor:'#2F3136'}}>
     {/*title*/}
-      <View style={{alignItems:'center',marginTop:80}}>
-        <Text style={{fontSize:35, color:'white', fontWeight:500}}>Which Lesson?</Text>
+      <View style={{alignItems:'center',marginTop:80, fontWeight:'bold'}}>
+        <Text style={{fontSize:35, color:'white'}}>Which Lesson?</Text>
       </View>
 
     {/*btnLesson*/}

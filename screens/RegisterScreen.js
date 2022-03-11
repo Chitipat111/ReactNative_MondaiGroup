@@ -3,7 +3,6 @@ import {  Text,  View,  SafeAreaView,  Button,  TextInput,  TouchableOpacity,} f
 import {  Container,  Form,  Icon,  Content,  Item,  Input,  Label,} from 'native-base';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
-import { FontAwesome } from '@expo/vector-icons';
 import axios from'axios';
 
 const ValidateSchema = Yup.object().shape({
@@ -19,7 +18,7 @@ const ValidateSchema = Yup.object().shape({
     .oneOf([Yup.ref('Password')], 'Passwords does not match'),
 });
 
-const RegisterScreen = ({navigation}) => {
+const RegisterScreen = () => {
   return (
     //Mondai
     <SafeAreaView style={{ flex: 1, backgroundColor: '#2F3136' }}>
@@ -41,22 +40,21 @@ const RegisterScreen = ({navigation}) => {
         }}
         validationSchema={ValidateSchema}
         onSubmit={async (values, {setSubmitting}) => {
-
          try {
-           const url = 'http://185.197.195.92:3000/users';
-           const res = await axios.post(url,{
-             username : values.UserName,
-             password : values.Password,
-           });
-           alert(res.data.message)
-           //navigation.navigate('HomeScreen');
-         } catch (error) { 
-           alert(error);
-         }finally{
-           setSubmitting(false);
-         }
-       }}
-     >
+          const url = 'http://185.197.195.92:3000/users';
+          const res = await axios.post(url,  
+          {headers: { 'Content-Type': 'application/x-www-form-urlencoded' }},
+          {params:{
+           username : values.UserName,
+           password : values.Password
+          }
+          });
+          alert(JSON.stringify(res['data']))
+        } catch (error) { 
+         console.log(error.response)
+        }finally{
+          setSubmitting(false);
+        }}}>
         {({errors,touched,values,handleBlur,handleChange,handleSubmit,isSubmitting}) => (
 
           
@@ -74,7 +72,7 @@ const RegisterScreen = ({navigation}) => {
               {/* Username */}
                 <View style={{marginBottom:10}}>                  
                   <Item fixedLabel error={errors.UserName && touched.UserName ? true : false}>
-                   <FontAwesome name="user" size={20} color="black" style={{padding: 5}} /> 
+                    <Icon type="FontAwesome" name="user" />
                     <Input value={values.UserName} placeholder="UserName" onChangeText={handleChange('UserName')} />
                     {errors.UserName && touched.UserName}
                   </Item>
@@ -91,7 +89,7 @@ const RegisterScreen = ({navigation}) => {
                 {/* Password */}
                 <View style={{marginBottom:10}}>                  
                   <Item fixedLabel error={errors.Password && touched.Password ? true : false}>
-                    <FontAwesome name="lock" size={20} color="black" style={{padding: 5}}/> 
+                    <Icon type="FontAwesome" name="lock" />
                     <Input value={values.Password} placeholder="Password" onChangeText={handleChange('Password')} onBlur={handleBlur('Password')} secureTextEntry={true} />
                     {errors.Password && touched.Password}
                   </Item>
@@ -108,7 +106,7 @@ const RegisterScreen = ({navigation}) => {
                 {/* 2ndPassword */}
                 <View style={{marginBottom:25}}>                  
                   <Item fixedLabel error={errors.ScdPassword && touched.ScdPassword ? true : false}>
-                   <FontAwesome name="lock" size={20} color="black" style={{padding: 5}}/>
+                    <Icon type="FontAwesome" name="lock" />
                     <Input value={values.ScdPassword} placeholder="Confirm Password" onChangeText={handleChange('ScdPassword')} onBlur={handleBlur('ScdPassword')} secureTextEntry={true} />
                     {errors.ScdPassword && touched.ScdPassword}
                   </Item>
@@ -129,11 +127,6 @@ const RegisterScreen = ({navigation}) => {
                   </TouchableOpacity>
                 </View>                
                 
-
-                {/* TestBTN */}
-                  <TouchableOpacity onPress={()=>{navigation.navigate('LessonScreen')}}>
-                    <Text style={{textDecorationLine: 'underline'}}>TestBTN Move Lesson</Text>
-                  </TouchableOpacity>
                 
               </Form>
 
