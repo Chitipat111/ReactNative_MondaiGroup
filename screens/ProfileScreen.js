@@ -1,8 +1,37 @@
-import * as React from 'react';
+import React,{useEffect,useState}  from 'react';
 import { View, Text, Button, Image, TouchableOpacity, SafeAreaView} from 'react-native';
 
-const ProfileScreen = () => {
+import axios from 'axios';
+
+
+const ProfileScreen = () => { 
+  
+  const [jsonread,setjsonread]=useState([]);
+  const [name,setName]=useState("Kornwara");
+  const [userID,setUserID]=useState(1);
+
+
+  const test = async()=>{ 
+    const url = 'http://185.197.195.92:3000/history';
+    const res =  await axios.get(url,
+      {params:{
+     userId : 1}
+    })
+    setjsonread(res.data);
+    // console.log(Object.keys(res.data).length-1)
+    // console.log(res.data[0]['hisChapter']);
+  }
+
+  useEffect(()=>{
+    test();
+  },[]);
+
+  console.log(Object.keys(jsonread).length);
+  console.log(jsonread[jsonread.length-1]["hisScore"]);
+  
   return (
+  
+
     <SafeAreaView style={{flex:1, backgroundColor:'#2F3136'}}>
       {/*Personal info*/}
       <View style={{flexDirection: "row",justifyContent:'space-evenly',marginTop:80}}>
@@ -10,7 +39,7 @@ const ProfileScreen = () => {
         <Image source={require('../assets/User-icon-default.png')} style={{width:105,height:105}}/>
         <View>
           {/*name*/}
-          <Text style={{color:'white', fontSize:25}}>Malee Aroina</Text>
+          <Text style={{color:'white', fontSize:25}}>{name}</Text>
           {/*setting & logout*/}
           <View style={{flexDirection:'row', justifyContent:'space-evenly', marginTop:20}}>
             <TouchableOpacity style={{backgroundColor:'white', marginRight:10, width:100, height:30, borderRadius:5, alignItems:"center", justifyContent:'center'}}>
@@ -42,16 +71,16 @@ const ProfileScreen = () => {
           {/*Info*/}
           <Text style={{fontSize:23, marginBottom:20}}>Recent Score</Text>
           <View style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center'}}>            
-            <Text>Java บทที่ 1</Text>
-            <Text>2/10</Text>
+            <Text>{jsonread[jsonread.length-1]["hisLanguage"]} {jsonread[jsonread.length-1]["hisChapter"]}</Text>
+            <Text>{jsonread[jsonread.length-1]["hisScore"]}/5</Text>
           </View>
           <View style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center', marginTop:10 }}>            
-            <Text>Java บทที่ 1</Text>
-            <Text>2/10</Text>
+            <Text>{jsonread[jsonread.length-2]["hisLanguage"]} {jsonread[jsonread.length-2]["hisChapter"]}</Text>
+            <Text>{jsonread[jsonread.length-2]["hisScore"]}/5</Text>
           </View>
           <View style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center', marginTop:10 }}>            
-            <Text>Java บทที่ 1</Text>
-            <Text>2/10</Text>
+            <Text>{jsonread[jsonread.length-3]["hisLanguage"]} {jsonread[jsonread.length-3]["hisChapter"]}</Text>
+            <Text>{jsonread[jsonread.length-3]["hisScore"]}/5</Text>
           </View>
 
         </View>
