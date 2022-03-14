@@ -3,6 +3,7 @@ import { View, Text, Button, Image, TouchableOpacity, SafeAreaView} from 'react-
 
 import axios from 'axios';
 
+var a =[];
 
 const ProfileScreen = () => { 
   
@@ -18,16 +19,20 @@ const ProfileScreen = () => {
      userId : 1}
     })
     setjsonread(res.data);
+    
     // console.log(Object.keys(res.data).length-1)
     // console.log(res.data[0]['hisChapter']);
   }
-
+  
   useEffect(()=>{
     test();
   },[]);
-
-  console.log(Object.keys(jsonread).length);
-  console.log(jsonread[jsonread.length-1]["hisScore"]);
+  // if(jsonread==undefined){
+  //   setjsonread([])
+  // }
+  // console.log(jsonread)
+  // console.log(Object.keys(jsonread).length);
+  // console.log(jsonread[jsonread.length-1]["hisScore"]);
   
   return (
   
@@ -60,7 +65,7 @@ const ProfileScreen = () => {
           <View style={{flexDirection:'row', justifyContent:'flex-start'}}>            
             <Image source={require('../assets/Java-logo.png')} style={{width:40,height:40, marginRight:10, borderRadius:7}}/>
             <Image source={require('../assets/Java-logo.png')} style={{width:40,height:40, marginRight:10, borderRadius:7}}/>
-            <Image source={require('../assets/Java-logo.png')} style={{width:40,height:40, marginRight:10, borderRadius:7}}/>
+            <Image  source={require('../assets/Java-logo.png')} style={{width:40,height:40, marginRight:10, borderRadius:7}}/>
           </View>
         </View>
       </View>
@@ -70,17 +75,18 @@ const ProfileScreen = () => {
         <View style={{width:270, borderRadius:4, padding:20, backgroundColor:'white'}}>
           {/*Info*/}
           <Text style={{fontSize:23, marginBottom:20}}>Recent Score</Text>
-          <View style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center'}}>            
-            <Text>{jsonread[jsonread.length-1]["hisLanguage"]} {jsonread[jsonread.length-1]["hisChapter"]}</Text>
-            <Text>{jsonread[jsonread.length-1]["hisScore"]}/5</Text>
+          <View  style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center'}}>  
+            <Text>{jsonread== undefined?'unde':'defi'}</Text>
+            <Text>{jsonread[jsonread.length-1]["hisLanguage"]===undefined ?'-':jsonread[jsonread.length-1]["hisLanguage"]} {jsonread[jsonread.length-1]["hisChapter"]}</Text>
+            <Text>{jsonread[jsonread.length-1]["hisScore"] ===undefined ?'-':jsonread[jsonread.length-1]["hisScore"]}/5</Text>
           </View>
           <View style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center', marginTop:10 }}>            
-            <Text>{jsonread[jsonread.length-2]["hisLanguage"]} {jsonread[jsonread.length-2]["hisChapter"]}</Text>
-            <Text>{jsonread[jsonread.length-2]["hisScore"]}/5</Text>
+            <Text>{jsonread[jsonread.length-2]["hisLanguage"] ===undefined ?'-':jsonread[jsonread.length-2]["hisLanguage"]} {jsonread[jsonread.length-2]["hisChapter"]}</Text>
+            <Text>{jsonread[jsonread.length-2]["hisScore"] ===undefined ?'-':jsonread[jsonread.length-2]["hisScore"]}/5</Text>
           </View>
-          <View style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center', marginTop:10 }}>            
-            <Text>{jsonread[jsonread.length-3]["hisLanguage"]} {jsonread[jsonread.length-3]["hisChapter"]}</Text>
-            <Text>{jsonread[jsonread.length-3]["hisScore"]}/5</Text>
+          <View  style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center', marginTop:10 }}>            
+            <Text>{jsonread[jsonread.length-3]["hisLanguage"] ===undefined ?'-':jsonread[jsonread.length-3]["hisLanguage"]} {jsonread[jsonread.length-3]["hisChapter"]}</Text>
+            <Text>{jsonread[jsonread.length-3]["hisScore"] ===undefined ?'-':jsonread[jsonread.length-3]["hisScore"]}/5</Text>
           </View>
 
         </View>
