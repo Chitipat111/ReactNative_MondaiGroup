@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { View, Text, Button, Image, TouchableOpacity, SafeAreaView} from 'react-native';
 
-const ResultScreen = ({navigation}) =>{
+const ResultScreen = ({navigation,route}) =>{
+  var {sendScore} = route.params;
+  const {maxScore} = route.params;
+  const {answer} = route.params;
+  const {choice} = route.params;
+  sendScore = (answer===choice?sendScore+1:sendScore)
   return (
     <SafeAreaView style={{flex:1, backgroundColor:'#2F3136'}}>
       {/*Head title*/}
@@ -11,7 +16,7 @@ const ResultScreen = ({navigation}) =>{
 
       {/*Score*/}
       <View style={{alignItems:'center',marginTop:70}}>
-        <Text style={{fontSize:50, color:'white', fontWeight:'bold'}}>7/10</Text>
+        <Text style={{fontSize:50, color:'white', fontWeight:'bold'}}>{sendScore}/{maxScore}</Text>
       </View>
 
       {/*Image*/}
