@@ -8,16 +8,29 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-const QuestionScreen = ({ navigation }) => {
-  const customData = require('../question/JAVA.json');
+
+const QuestionScreen = ({ navigation}) => {
+  // const QuestionScreen = ({ navigation,route }) => {
+  // const { name } = route.params;
+const lang = "HTML";
+const chapter = "ความรู้เบื้องต้นเกี่ยวกับ HTML";
+
+const javafile = require('../question/JAVA.json')
+const htmlfile = require('../question/HTML.json')
+
+
+const customData = (lang=='JAVA'?javafile:htmlfile)
+
+
+  //const customData = require(filename);
   // const [qusetion,setQusetion]=useState([]);
   const [number, setNumber] = useState(1);
   const [score , setScore] = useState(0);
   //())=>setChooseChoice(0)
-  const numQues = Object.keys(customData['Variable_&_Variable_type']).length;
+  const numQues = Object.keys(customData[chapter]).length;
   const [chooseChoice, setChooseChoice] = useState(0);
   const fullQuestion =
-    customData['Variable_&_Variable_type'][number.toString()];
+    customData[chapter][number.toString()];
   const quesType = fullQuestion['Q_Type'];
   const question = fullQuestion['Quiz'];
   const choice = fullQuestion['Choice'];
@@ -37,14 +50,14 @@ const QuestionScreen = ({ navigation }) => {
   const chooseChoiceColor = chooseChoice === ans ? '#2ECD81' : '#EE4F4F';
   const notChooseChoiceColor = chooseChoice === 0 ? '#2F3136' : '#C4C4C4';
 
-  const nextOpacity = chooseChoice === 0 ? 0 : 1;
-  const nextVisible = chooseChoice === 0 ? true : false;
+  const nextOpacity = ((chooseChoice === 0 || number===5) ? 0 : 1);
+  const nextVisible = ((chooseChoice === 0 || number===5) ? true : false);
 
   const afterAns = chooseChoice === 0 ? false : true;
 
   //const [quesType,setQuesType] = useState()
   useEffect(() => {
-    alert(score)
+    // alert(filename)
   });
 
   return (
@@ -55,7 +68,7 @@ const QuestionScreen = ({ navigation }) => {
           {number}/{numQues}
         </Text>
         <Text style={{ color: 'white', fontSize: 24, marginTop: 50 }}>
-          {' '}
+  
           {question}
           {/* {customData['Variable_&_Variable_type'][number.toString()]['Quiz']}*/}
         </Text>
@@ -159,11 +172,24 @@ const QuestionScreen = ({ navigation }) => {
           }}>
           <Text style={{ color: 'white' }}>Next</Text>
         </TouchableOpacity>
+        <TouchableOpacity disabled={(number===5?false:true)}
+          style={{
+            opacity : (number===5?1:0),
+            backgroundColor: quesColor,
+            width: 100,
+            height: 35,
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: 7,
+          }}
+          onPress={() => {
+            {navigation.navigate('ResultScreen',{sendScore:score,maxScore:numQues,answer:ans,choice:chooseChoice})}
+          }}>
+          <Text style={{ color: 'white' }}>Next</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
 export default QuestionScreen;
-//{() => {setNumber(number + 1);setChooseChoice(0);}}
-//{navigation.navigate('ResultScreen')}
