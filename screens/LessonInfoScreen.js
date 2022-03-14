@@ -3,30 +3,6 @@ import { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, SafeAreaView} from 'react-native';
 import { Picker, Form } from 'native-base';
 
-var MESSAGE;
-
-function MessageChange(selectedValue){
-    {/*Change Message Condition*/}
-  if(selectedValue === "Variable"){
-    return "Variable Infomation"
-  }
-  else if (selectedValue === "Boolean" ){
-    return "Boolean Infomation"
-  }
-  else if (selectedValue === "Output" ){
-    return "Output Infomation"
-  }
-  else if (selectedValue === "Array" ){
-    return "Array Infomation"
-  }
-  else if (selectedValue === "If" ){
-    return "If Infomation"
-  }
-  else if (selectedValue === "Loop" ){
-    return "Loop Infomation"
-  }
-}
-
 const LessonInfoScreen = ({navigation,route}) =>  {
 
   const { name } = route.params;
@@ -34,16 +10,6 @@ const LessonInfoScreen = ({navigation,route}) =>  {
   const IMAGE_HTML = require('../assets/Html-logo.png')
 
   let IMAGE
-  // let MESSAGE
-
-  {/*Message state*/}
-  const [message, setMessage] = useState();
-  
-  // useEffect(()=>{
-  //   MESSAGE = MessageChange(selectedValue);
-  //   alert(MESSAGE)
-  //   setMessage(MESSAGE)
-  // });
 
   {/*Change Image Condition*/}
   if(name === 'JAVA'){
@@ -53,16 +19,62 @@ const LessonInfoScreen = ({navigation,route}) =>  {
     IMAGE = IMAGE_HTML
   }
 
-
-
+  {/*Message state*/}
+  const [message, setMessage] = useState();
   {/*picker state*/}
-  const [selectedValue, setSelectedValue] = useState("Variable");
+  const [selectedValue, setSelectedValue] = useState();
+
+  {/*Apply Default Picker*/}
+  useEffect(()=>{
+    const applyPicker = ()=>{
+      if(name === 'JAVA'){
+          setSelectedValue("Variable_&_Variable_type")
+        }
+      else if(name === 'HTML'){
+          setSelectedValue("ความรู้เบื้องต้นเกี่ยวกับ HTML")
+      }
+    }
+    applyPicker();    
+  },[name]);
+
+  {/*Apply Message*/}
+  useEffect(()=>{
+    const applyMessage = ()=>{
+      if(name === 'JAVA'){
+          if(selectedValue === "Variable_&_Variable_type"){
+            setMessage("Variable Information 1")
+          }
+          else if(selectedValue === "Boolean"){
+            setMessage("Boolean Information 2")
+          }
+          else if(selectedValue === "การแสดงผล"){
+            setMessage("Output Information 3")
+          }
+          else if(selectedValue === "Array"){
+            setMessage("Array Information 4")
+          }
+          else if(selectedValue === "If"){
+            setMessage("If Information 5")
+          }
+          else if(selectedValue === "Loop"){
+            setMessage("Loop Information 6")
+          }
+      }
+      else if(name === 'HTML'){
+        if(selectedValue === "ความรู้เบื้องต้นเกี่ยวกับ HTML"){
+            setMessage("BasicHtml Information 1")
+          }
+          else if(selectedValue === "การใช้งาน css เชื่อมต่อกับไฟล์ html"){
+            setMessage("Css Information 2")
+          }
+      }
+      
+    }
+    applyMessage();    
+  });
 
   return(
     <SafeAreaView style={{flex:1,backgroundColor:'#2F3136'}}>
-
-    <Text style={{color:'white'}}>{ name }</Text>
-    <Text style={{color:'white'}}>{selectedValue}</Text>
          
     {/*image*/}
       <View style={{alignItems:'center',marginTop:80}}>
@@ -71,18 +83,37 @@ const LessonInfoScreen = ({navigation,route}) =>  {
 
     {/*dropdowm*/}
       <View style={{alignItems:'center',marginTop:60}}>
-        <Picker
-          style={{width:270, height:45, borderRadius:4, textAlign: 'center',backgroundColor:'white'}}
-          selectedValue={selectedValue}
-          onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-        >
-          <Picker.Item label="Variable" value="Variable" />
-          <Picker.Item label="Boolean" value="Boolean" />
-          <Picker.Item label="Output" value="Output" />
-          <Picker.Item label="Array" value="Array" />
-          <Picker.Item label="If" value="If" />
-          <Picker.Item label="Loop" value="Loop" />
-        </Picker>
+      {(() => {
+            if(name === 'JAVA') {
+              return (
+                  <Picker
+                  style={{width:270, height:45, borderRadius:4, textAlign: 'center',backgroundColor:'white'}}
+                  selectedValue={selectedValue}
+                  onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                  >
+                    <Picker.Item label="Variable" value="Variable_&_Variable_type" />
+                    <Picker.Item label="Boolean" value="Boolean" />
+                    <Picker.Item label="Output" value="การแสดงผล" />
+                    <Picker.Item label="Array" value="Array" />
+                    <Picker.Item label="If" value="If" />
+                    <Picker.Item label="Loop" value="Loop" />
+                </Picker>
+              )
+            }
+            else if(name === 'HTML') {
+              return (
+                  <Picker
+                  style={{width:270, height:45, borderRadius:4, textAlign: 'center',backgroundColor:'white'}}
+                  selectedValue={selectedValue}
+                  onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                  >
+                    <Picker.Item label="BasicHtml" value="ความรู้เบื้องต้นเกี่ยวกับ HTML" />
+                    <Picker.Item label="Css" value="การใช้งาน css เชื่อมต่อกับไฟล์ html" />
+                </Picker>
+              )
+            }
+      })()}
+        
       </View>
 
     {/*InfoBox*/}
@@ -90,15 +121,15 @@ const LessonInfoScreen = ({navigation,route}) =>  {
         <View style={{width:270, borderRadius:4, padding:20, backgroundColor:'white'}}>
           {/*Info*/}
           <View>
-            <Text>Basic Java</Text>
+            <Text>{selectedValue}</Text>
             <Text style={{marginTop:15}}>
-             รายละเอียด รายละเอียด รายละเอียด รายละเอียด {MESSAGE}
+              {message}
             </Text>
           </View>
           {/*Btn*/}
           <View style={{alignItems:'flex-end', marginTop:45}}>
             <TouchableOpacity style={{width:120, padding:7, backgroundColor:'#202225'}}>
-              <Text onPress={()=>{navigation.navigate('QuestionScreen')}} style={{color:'white', textAlign: 'center'}}>เริ่มทำแบบฝึกหัด</Text>
+              <Text onPress={()=>{navigation.navigate('QuestionScreen', { lang : name, chapter: selectedValue })}} style={{color:'white', textAlign: 'center'}}>เริ่มทำแบบฝึกหัด</Text>
             </TouchableOpacity>
           </View>
         </View>
