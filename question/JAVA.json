@@ -1,5 +1,5 @@
 {
-    "Variable_&_Variable_type ": {
+    "Variable_&_Variable_type": {
         "1": {
             "Q_Type":"1",
             "Quiz": "ตัวแปรใดเป็นจำนวนเต็ม",
@@ -269,7 +269,7 @@
             "Ans": 1
         }
     },
-    "loop": {
+    "Loop": {
         "1": {
             "Q_Type":"1",
             "Quiz": " while กับ for ต่างกันอย่างไร",
