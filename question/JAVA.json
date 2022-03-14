@@ -1,0 +1,329 @@
+{
+    "Variable_&_Variable_type ": {
+        "1": {
+            "Q_Type":"1",
+            "Quiz": "ตัวแปรใดเป็นจำนวนเต็ม",
+            "Choice": [
+                "String Name = \"lon\";",
+                "double Number1 = 2.175;",
+                "int Number1 = 1;",
+                "char own='T';"
+            ],
+            "Ans": 3
+        },
+        "2": {
+            "Q_Type":"1",
+            "Quiz": "การสร้างตัวแปรแบบใดถูกต้อง",
+            "Choice": [
+                "char char ='T';",
+                "Int num = 12.45;",
+                "int num =1245;",
+                "char name ='kow';"
+            ],
+            "Ans": 3
+        },
+        "3": {
+            "Q_Type":"2",
+            "Quiz": "double num1 =25; ตัวแปรนี้ถูกหรือผิด",
+            "Choice": [
+                "ถูก",
+                "ผิด"
+            ],
+            "Ans": 1
+        },
+        "4": {
+            "Q_Type":"1",
+            "Quiz": "ข้อใดเก็บค่าได้มากที่สุด",
+            "Choice": [
+                "byte",
+                "short",
+                "int",
+                "long"
+            ],
+            "Ans": 4
+        },
+        "5": {
+            "Q_Type":"2",
+            "Quiz": "double กับ float นั้นจำเป็นจะต้องมี d และ f ต่อท้ายหรือไม่ ",
+            "Choice": [
+                "ต้องมี",
+                "ไม่จำเป็นต้องมี"
+            ],
+            "Ans": 2
+        }
+    },
+    "Boolean": {
+        "1": {
+            "Q_Type":"1",
+            "Quiz": "ค่าของ boolean นั้นมีค่าคืออะไร",
+            "Choice": [
+                "ตัวอักษร",
+                "ตัวเลข",
+                "ค่าTrue/False",
+                "ค่าว่าง"
+            ],
+            "Ans": 3
+        },
+        "2": {
+            "Q_Type":"2",
+            "Quiz": "false != true ค่าความจริงเป็นจริงหรือเท็จ",
+            "Choice": [
+                "จริง",
+                "เท็จ"            ],
+            "Ans": 1
+        },
+        "3": {
+            "Q_Type":"2",
+            "Quiz": "true == !true ค่าความจริงเป็นจริงหรือเท็จ",
+            "Choice": [
+                "จริง",
+                "เท็จ"
+            ],
+            "Ans": 2
+        },
+        "4": {
+            "Q_Type":"2",
+            "Quiz": "int num=2; \n int num1 =5; \nSystem.out.println(num > num1  && num<num1); จากโจทย์ข้างบนจะได้ค่าเป็น true หรือ false",
+            "Choice": [
+                "true",
+                "false"
+            ],
+            "Ans": 2
+        },
+        "5": {
+            "Q_Type":"2",
+            "Quiz": "int num=6; \nint num1 =4; \nSystem.out.println(num > num1  || num<num1); จากโจทย์ข้างบนจะได้ค่าเป็น true หรือ false",
+            "Choice": [
+                "true",
+                "false"
+            ],
+            "Ans": 1
+        }
+    },
+    "การแสดงผล": {
+        "1": {
+            "Q_Type":"1",
+            "Quiz": "System.out._____(“hello world”);",
+            "Choice": [
+                "Println",
+                "print",
+                "decimal",
+                "line"
+            ],
+            "Ans": 2
+        },
+        "2": {
+            "Q_Type":"1",
+            "Quiz": "String word = “world”; \nSystem.out.println(word.charAt(2)); จะแสดงผลเป็นตัวอักษรใด",
+            "Choice": [
+                "w",
+                "o",
+                "r",
+                "l"
+            ],
+            "Ans": 3
+        },
+        "3": {
+            "Q_Type":"1",
+            "Quiz": "String word=\"world\";\n String word1 =\"Hello\";\nSystem.out.println(word.concat(word.concat(word1))); จะแสดงผลออกมาอย่างไร",        
+            "Choice": [
+                "worldHelloworld",
+                "worldHelloHello",
+                "worldworldHello",
+                "HelloworldHello"
+            ],
+            "Ans": 3
+        },
+        "4": {
+            "Q_Type":"1",
+            "Quiz": "String word=\"world\"; \nSystem.out.println(word.replace(word.charAt(3), 'U')); แสดงผลอกมาอย่างไร",
+            "Choice": [
+                "woUld",
+                "worUd",
+                "wUrld",
+                "worlU"
+            ],
+            "Ans": 2
+        },
+        "5": {
+            "Q_Type":"1",
+            "Quiz": "String str = \"geekss@for@gee@kss\";\n String[] arrOfStr = str.split(\"@\", 3);\nSystem.out.println(Arrays.toString(arrOfStr)); จะออกมาเป็นArraysใด",
+            "Choice": [
+                "[geekss, for, gee@kss]",
+                "[geekss@for,gee,kss]",
+                "[geekss, for, gee,kss]",
+                "[geekss, for@gee,kss]"
+            ],
+            "Ans": 1
+        }
+    },
+    "Array": {
+        "1": {
+            "Q_Type":"1",
+            "Quiz": "Arrays นั้นนับเริ่มอย่างไรในทางคอมพิวเตอร์",
+            "Choice": [
+                "เริ่มจาก 0",
+                "เริ่มจาก 1",
+                "เริ่มจากที่ต้องการ",
+                "ไม่มีข้อถูก"
+            ],
+            "Ans": 1
+        },
+        "2": {
+            "Q_Type":"1",
+            "Quiz": "การเรียกใช้ Arrays แบบใดไม่ถูกต้อง",
+            "Choice": [
+                "num[1]",
+                "num[1][2]",
+                "num[1][2][3]",
+                "ไม่มีข้อไหนผิด"
+            ],
+            "Ans": 4
+        },
+        "3": {
+            "Q_Type":"1",
+            "Quiz": "Arrays ข้อใดถูกต้อง",        
+            "Choice": [
+                "String [] name ={\"raven\",\"light\"};",
+                "int num ={1,2,3};",
+                "String [] name ={\"raven\",1,\"light\"};",
+                "String [][] name ={\"raven\"}{\"light\"};"
+            ],
+            "Ans": 1
+        },
+        "4": {
+            "Q_Type":"1",
+            "Quiz": "int[][] num=แล้ว [ { {1, 2, 3, 4}, {5, 6, 7} }; num[0][2] คือค่าใด",
+            "Choice": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "Ans": 3
+        },
+        "5": {
+            "Q_Type":"1",
+            "Quiz": "int[][] num=แล้ว [ { {1, 2, 3, 4}, {5, 6, 7} }; num.length จะเท่ากับเท่าใด",
+            "Choice": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "Ans": 2
+        }
+    },
+    "If": {
+        "1": {
+            "Q_Type":"1",
+            "Quiz": "1 int num1 =1;\nint num2 =2;\nif(num2<num1){    \nnum1 = num1+num2;    \nnum2=num1;\n}\nnum 2 มีค่าเท่าใด",
+            "Choice": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "Ans": 2
+        },
+        "2": {
+            "Q_Type":"1",
+            "Quiz": "else กับ elseif ทำงานอย่างไร",
+            "Choice": [
+                "else จะลงมาทำงานเลยหาก if ไม่ตรงเงื่อนไข",
+                "elseif จะเช็ตเงื่อนไขในที่กำหนดด้วยหลังจากที่ if ไม่ตรงเงื่อนไข",
+                "elseif กับ else จะไม่ข้ามถ้าหากไม่ตรงเงื่อน",
+                "ถูกข้อ 1กับ 2"
+            ],
+            "Ans": 4
+        },
+        "3": {
+            "Q_Type":"1",
+            "Quiz": "num =1;\nnum2 =2;\n    if(num1>num2){}\n    elseif(num1<num2){}\n    else{}\nจากโจทย์จะทำงานใน if elseif หรือ else",        
+            "Choice": [
+                "if",
+                "else",
+                "elseif",
+                "ไม่ทำงานในไหนเลย"
+            ],
+            "Ans": 3
+        },
+        "4": {
+            "Q_Type":"2",
+            "Quiz": "if(true){} คำสั่งนี้ใช้งานได้หรือไม่",
+            "Choice": [
+                "ได้",
+                "ไม่ได้"
+            ],
+            "Ans": 1
+        },
+        "5": {
+            "Q_Type":"1",
+            "Quiz": " word=\"world\";\nif(word =\"World\"){}\nelseif(word=\"Word\"){} จะเข้าไปทำงานในคำสั่งไหน",
+            "Choice": [
+                "if",
+                "elseif",
+                "ไม่ทำงานเลย",
+                "ทำงานทั้ง2"
+            ],
+            "Ans": 1
+        }
+    },
+    "loop": {
+        "1": {
+            "Q_Type":"1",
+            "Quiz": " while กับ for ต่างกันอย่างไร",
+            "Choice": [
+                "while จะทำงานเรื่อยๆจนกว่าจะไม่เข้าเงื่อนไข แต่ for นั้นจะทำงานโดยกำหนดรอบแต่แรก",
+                "while จะเป็นการกำหนดรอบ แต่ for จะเป็นการใช้เงื่อนไขในการเข้า loop",
+                "for จะเป็นการที่ว่าต้องมี break ทุกๆครั้งที่จบ loop แต่ while ต้องใช้ continues ในการจบ loop",
+                "ผิดทุกข้อ"
+            ],
+            "Ans": 1
+        },
+        "2": {
+            "Q_Type":"1",
+            "Quiz": "คำสั่งใดที่ทำให้มี loop",
+            "Choice": [
+                "if",
+                "for",
+                "break",
+                "continue"
+            ],
+            "Ans": 2
+        },
+        "3": {
+            "Q_Type":"1",
+            "Quiz": "while(true) จะทำงานกี่รอบ",        
+            "Choice": [
+                "5 รอบ",
+                "10 รอบ",
+                "ไม่มีวันจบ",
+                "1 รอบ"
+            ],
+            "Ans": 3
+        },
+        "4": {
+            "Q_Type":"1",
+            "Quiz": "for(int i=0;i<=9;i=i+2){\ni+=1;\n}ค่าสุดท้ายของ i คือ",
+            "Choice": [
+                "5",
+                "7",
+                "9",
+                "12"
+            ],
+            "Ans": 4
+        },
+        "5": {
+            "Q_Type":"1",
+            "Quiz": "do-while กับ while ต่างกันอย่างไร",
+            "Choice": [
+                "dowhile จะทำใน do ก่อนที่จะไปเช็คในเงื่อนไข while แต่ while จะเช็คเงื่อนไขก่อนทำงาน",
+                "while จะทำไปแบบไม่มีสิ้นสุดแต่ do-while จะทำมีจุดสิ้นสุด",
+                "while จะสามารถใช้ break ได้ แต่ do-while ใช้ไม่ได้",
+                "ไม่มีข้อถูก"
+            ],
+            "Ans": 1
+        }
+    }
+}

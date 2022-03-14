@@ -1,0 +1,185 @@
+{
+    "ความรู้เบื้องต้นเกี่ยวกับ HTML": {
+        "1": {
+            "Q_Type":"1",
+            "Quiz": "การเขียน HTML นั้นต้องเริ่มต้นด้วยคำสั่งใด",
+            "Choice": [
+                "<html>",
+                "<head>",
+                "<!DOCTYPE html>",
+                "<body>"
+            ],
+            "Ans": 3
+        },
+        "2": {
+            "Q_Type":"1",
+            "Quiz": "<!DOCTYPE html> ใช้เพื่ออะไร",
+            "Choice": [
+                "ใช้สำหรับให้ web browser รู้ว่ากำลังอ่าน html อยู่",
+                "ใช้เพื่อบอกถึงว่า ไฟล์นี้เป็น html เฉยๆ",
+                "ใช้เพราะว่าเป็น syntax html ธรรมดา",
+                "ไม่มีความหมายเป็นพิเศษ"
+            ],
+            "Ans": 1
+        },
+        "3": {
+            "Q_Type":"1",
+            "Quiz": "คำสั่งในการขีดเส้นใต้ ต้องใช้คำสั่งใด",
+            "Choice": [
+                "<a>",
+                "<b>",
+                "<u>",
+                "<i>"
+            ],
+            "Ans": 3
+        },
+        "4": {
+            "Q_Type":"1",
+            "Quiz": "คำสั่ง <br> ใช้เพื่ออะไร",
+            "Choice": [
+                "ใช้สำหรับการเว้นวรรคแบบ TAB",
+                "ใช้สำหรับการ Enter ลงมา",
+                "ใช้สำหรับการขีดเส้นใต้ข้อความ",
+                "ใช้สำหรับตัวเอียง"
+            ],
+            "Ans": 2
+        },
+        "5": {
+            "Q_Type":"1",
+            "Quiz": "Heading ตัวไหนใหญ่สุด",
+            "Choice": [
+                "<h1>Your welcome</h1>",
+                "<h3>Your welcome</h3>",
+                "<h4>Your welcome</h4>",
+                "<h6>Your welcome</h6>"
+            ],
+            "Ans": 1
+        },
+        "6": {
+            "Q_Type":"2",
+            "Quiz": "วิธีการ Link HTML คือ <a href=\"https://www.google.com\">To google</a> ถูกหรือไม่",
+            "Choice": [
+                "ถูก",
+                "ไม่"
+            ],
+            "Ans": 1
+        },
+        "7": {
+            "Q_Type":"1",
+            "Quiz": "การคอมเม้นใน HTMLนั้นทำอย่างไร",
+            "Choice": [
+                "//<p>hello </p>",
+                "<!-- <p>Hello</p> -->",
+                "<-- <p>Hello</p> -->",
+                "<!-- <p>Hello</p> --!>"
+            ],
+            "Ans": 2
+        }
+    },
+    "การใช้งาน css เชื่อมต่อกับไฟล์ html": {
+        "1": {
+            "Q_Type":"1",
+            "Quiz": "วิธีการใช้ CSS แบบ Inline แบบไหนถูกต้อง",
+            "Choice": [
+                "<h1 style =\"color :red;\">hello world </h1>",
+                "<p style =\" color :red;\">hello world </p>",
+                "<text style =\"color :red;\">hello world </text>",
+                "ถูกทุกข้อ"
+            ],
+            "Ans": 4
+        },
+        "2": {
+            "Q_Type":"1",
+            "Quiz": "การใส่สีแบบ Hex นั้นเขียนอย่างไร",
+            "Choice": [
+                "<h1 style=\"background-color:ff6347;\">...</h1>",
+                "<h1 style=\"background-color:rgb(255, 99, 71);\">...</h1>",
+                "<h1 style=\"background-color:#ff6347;\">...</h1>",
+                "<h1 style=\"background-color:hsl(9, 100%, 64%);\">...</h1>"
+            ],
+            "Ans": 3
+        },
+        "3": {
+            "Q_Type":"2",
+            "Quiz": "การเขียน Internal CSS ตามโจทย์ด้านล่างถูกต้องหรือไม่\n<head>\n    <style>\n        body {background-color: yellow;}        \nh1   {color: blue;}       \np    {color: red;}\n    </style>\n</head>",
+            "Choice": [
+                "ถูก",
+                "ผิด"
+            ],
+            "Ans": 3
+        },
+        "4": {
+            "Q_Type":"1",
+            "Quiz": "การเชื่อมระหว่างไฟล์ HTML กับ CSS นั้นเขียนอย่างไร",
+            "Choice": [
+                "<link rel=\"stylesheet\" >",
+                "<link rel=\"stylesheet\" href=\"styles.css\"></link>",
+                "<link rel=\"stylesheet\" href=\"styles.css\">",
+                "<link href=\"styles.css\">"
+            ],
+            "Ans": 3
+        },
+        "5": {
+            "Q_Type":"1",
+            "Quiz": "การสร้าง class และ id ต่างกันอย่างไร",
+            "Choice": [
+                "syntax ต่างกัน โดยที่ class นั้นจะเป็น .{//any CSS} แต่ id นั้นจะเริ่มเป็น #{//any CSS}",
+                "เวลาเรียกใช้ id นั้นต้องใช้ style= “id.CSS” แต่ ถ้าเป็น class นั้น จะต้องใช้class=”bigtext",
+                "id นั้นจะสามารถเรียกใช้ได้เพียงแค่ครั้งเดียวต่อ id นั้นที่สร้างขึ้นมาแต่หากเป็น class นั้นจะสามารถเรียกใช้ได้หลายครั้ง",
+                "ถูกข้อ 1 กับ 3"
+            ],
+            "Ans": 4
+        }
+    },
+    "การใช้ Table และรูปภาพ": {
+        "1": {
+            "Q_Type":"2",
+            "Quiz": "การใช้ <img>นั้นต้องจำเป็นต้องมี </img> ปิดหรือไม่",
+            "Choice": [
+                "มี",
+                "ไม่มี"
+            ],
+            "Ans": 2
+        },
+        "2": {
+            "Q_Type":"2",
+            "Quiz": "การสร้าง Table แบบในตัวอย่างด้านล่างนั้นถูกหรือไม่ \n<table>\n <tr>\n    <th>ID product</th>\n </tr>\n <tr>\n    <td>11253</td>\n </tr>\n</table>",
+            "Choice": [
+                "ถูก",
+                "ผิด"
+            ],
+            "Ans": 1
+        },
+        "3": {
+            "Q_Type":"1",
+            "Quiz": "<td>.. </td> และ <th>... </th> นั้นต่างกันหรือเหมือนกันอย่างไร",        
+            "Choice": [
+                "ไม่มีความต่างเพราะเป็นข้อความเหมือนกัน",
+                "ต่างกันที่ <td> เป็นข้อความธรรมดาส่วน <th> เป็นข้อความตัวหนา",
+                "ต่างกันเพียงแค่ตัวอักษรเท่านั้น",
+                "ต่างกันที่ จำนวนในการใส่ตัวอักษร"
+            ],
+            "Ans": 2
+        },
+        "4": {
+            "Q_Type":"2",
+            "Quiz": "<table>, <tr>, <th>,<td>นั้นสามารถใส่ CSS ได้หรือไม่",
+            "Choice": [
+                "ได้",
+                "ไม่ได้"
+            ],
+            "Ans": 1
+        },
+        "5": {
+            "Q_Type":"1",
+            "Quiz": "<img> แบบใดถูก",
+            "Choice": [
+                "<img src=\"/images/walk.gif\"alt=\"walkbar\"style=\"width:128px;height:128px;\">",
+                "<img src=\"https://www.engdict.com/data/dict/media/images_public/sun-00085696_normal.png\" alt=\"Sun\">",
+                "<img src=\"walk.jpg\" alt=\"walk\" width=\"500\" height=\"600\">",
+                "ถูกทุกข้อ"
+            ],
+            "Ans": 4
+        }
+    }
+}
