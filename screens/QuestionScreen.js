@@ -172,6 +172,15 @@ const customData = (lang=='JAVA'?javafile:htmlfile)
           }}>
           <Text style={{ color: 'white' }}>Next</Text>
         </TouchableOpacity>
+        </View>
+        <View
+        style={{
+          flex: 0.105,
+          backgroundColor: 'white',
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+          padding: 20,
+        }}>
         <TouchableOpacity disabled={(number===5?false:true)}
           style={{
             opacity : (number===5?1:0),
