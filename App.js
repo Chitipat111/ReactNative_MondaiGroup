@@ -13,14 +13,16 @@ import ResultScreen from './screens/ResultScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import SettingScreen from './screens/SettingScreen'
 import ChoosePicScreen from './screens/ChoosePicScreen'
+import UserStoreProvider from './context/UserContext';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator initialRouteName='LessonScreen' //รอเปลี่ยน
+    <UserStoreProvider>
+      <NavigationContainer>
+      <Tab.Navigator initialRouteName='LoginScreen' //รอเปลี่ยน
       screenOptions={{
         headerStyle: { backgroundColor: '#202225', elevation: 0, shadowOpacity: 0, borderBottomWidth: 0},
         headerTintColor: '#fff',
@@ -55,6 +57,7 @@ const App = () => {
         
       </Tab.Navigator>
     </NavigationContainer>
+    </UserStoreProvider>
   )
 }    
 
