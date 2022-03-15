@@ -28,7 +28,7 @@ const QuestionScreen = ({navigation, route}) => {
   //trueFalseQuiz
   const showOpacity = quesType === '1' ? 1 : 0;
   const choiceVisible = quesType === '1' ? false : true;
-
+  
   //answer
   var quesColor; //same as next button
   if (chooseChoice === ans) {
@@ -47,12 +47,17 @@ const QuestionScreen = ({navigation, route}) => {
   const afterAns = chooseChoice === 0 ? false : true;
   const widthAfterAns = chooseChoice === 0 ? 350 : 300;
 
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: quesColor}}>
       {/*header*/}
       <View style={{flexDirection:'row', justifyContent:'flex-start', alignItems:'center',backgroundColor: '#202225', height:64}}>
-        <Icon onPress={()=>{navigation.navigate('LessonScreen')}} type="FontAwesome" name="xmark" style={{color:'white', marginRight:77, marginLeft:30}}/>
-        <Text style={{color:'white',fontWeight: 'bold',fontSize:18}}>Question</Text>
+        <TouchableOpacity onPress={()=>{{navigation.navigate('LessonScreen')}; setNumber(1)
+            setChooseChoice(0)
+            setScore(0)}}>
+          <Image source= {require('../assets/close-icon.png')} style={{width:30, height:30, marginRight:95, marginLeft:30}}/>
+        </TouchableOpacity>
+          <Text style={{color:'white',fontWeight: 'bold',fontSize:18}}>Question</Text>                
       </View>
 
       {/*Quiz*/}
@@ -257,6 +262,9 @@ const QuestionScreen = ({navigation, route}) => {
                 langChapter : chapter
               });
             }
+            setNumber(1)
+            setChooseChoice(0)
+            setScore(0)
           }}>
           <Text style={{color: 'white'}}>Next</Text>
         </TouchableOpacity>
