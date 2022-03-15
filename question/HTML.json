@@ -54,26 +54,6 @@
                 "<h6>Your welcome</h6>"
             ],
             "Ans": 1
-        },
-        "6": {
-            "Q_Type":"2",
-            "Quiz": "วิธีการ Link HTML คือ <a href=\"https://www.google.com\">To google</a> ถูกหรือไม่",
-            "Choice": [
-                "ถูก",
-                "ไม่"
-            ],
-            "Ans": 1
-        },
-        "7": {
-            "Q_Type":"1",
-            "Quiz": "การคอมเม้นใน HTMLนั้นทำอย่างไร",
-            "Choice": [
-                "//<p>hello </p>",
-                "<!-- <p>Hello</p> -->",
-                "<-- <p>Hello</p> -->",
-                "<!-- <p>Hello</p> --!>"
-            ],
-            "Ans": 2
         }
     },
     "การใช้งาน css เชื่อมต่อกับไฟล์ html": {
