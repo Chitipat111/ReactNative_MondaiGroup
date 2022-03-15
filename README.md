@@ -16,4 +16,4 @@ Source Code Link : https://github.com/Chitipat111/ReactNative_MondaiGroup
 
 User Manual Link : https://github.com/Chitipat111/ReactNative_MondaiGroup/blob/main/Documents/Phase%20III/Mondai%20Manual%20Application.pdf
 
-Poster Link : https://github.com/Chitipat111/ReactNative_MondaiGroup/blob/main/Documents/Phase%20III/posterfinal.jpg
+Poster Link : https://drive.google.com/file/d/1ITf7-5OzCLjj4aTs9uaAIMGmDZD5n3Rx/view?usp=sharing
