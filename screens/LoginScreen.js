@@ -1,9 +1,12 @@
-import * as React from 'react';
-import { Text, View, SafeAreaView, Button, TextInput, TouchableOpacity,} from 'react-native';
+import React,{useEffect,useState}  from 'react';
+import { Text, View, SafeAreaView, Button, TextInput, TouchableOpacity,ScrollView} from 'react-native';
 import { Container, Form, Icon, Content, Item, Input, Label,} from 'native-base';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from'axios';
+import { UserStoreContext } from '../context/UserContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import jwt_decode from "jwt-decode";
 
 const ValidateSchema = Yup.object().shape({
   UserName: Yup.string()
@@ -15,9 +18,14 @@ const ValidateSchema = Yup.object().shape({
 }); 
 
 const LoginScreen = ({navigation}) => {
+
+  const userStore = React.useContext(UserStoreContext);
+  let de='';
+
   return (
     //Mondai
     <SafeAreaView style={{ flex: 1, backgroundColor: '#2F3136' }}>
+      <ScrollView>
       <View
         style={{
           flexDirection: 'row',
@@ -43,7 +51,18 @@ const LoginScreen = ({navigation}) => {
             username : values.UserName,
             password : values.Password
             }});
-            //alert(JSON.stringify(res['data']))
+
+            await AsyncStorage.setItem('@token',res.data);
+            const Token = await AsyncStorage.getItem('@token')
+            
+            de=(jwt_decode(Token));
+            // console.log(de.image)
+           
+            userStore.updateToken(Token); //Send Token
+            userStore.updatePicture(de.image);
+            // alert(userStore.Token);   //Alert Check
+            // setde(jwt_decode(Token));
+            
             alert('Login Successfully');
             navigation.navigate('LessonScreen');
           } catch (error) { 
@@ -121,6 +140,7 @@ const LoginScreen = ({navigation}) => {
           </View>
         )}
       </Formik>
+      </ScrollView>
     </SafeAreaView>
   );
 };

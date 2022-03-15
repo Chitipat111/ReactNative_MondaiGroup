@@ -1,12 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  Button,
-  Image,
-  TouchableOpacity,
-  SafeAreaView,
-} from 'react-native';
+import { View, Text, Button, Image, TouchableOpacity, SafeAreaView} from 'react-native';
+import { Icon } from 'native-base';
 
 const QuestionScreen = ({navigation, route}) => {
   const {lang} = route.params;
@@ -42,19 +36,25 @@ const QuestionScreen = ({navigation, route}) => {
   } else if (chooseChoice === 0) {
     quesColor = '#2F3136';
   } else {
-    quesColor = '#EE4F4F';
+    quesColor = '#cd5c5c';
   }
-  const chooseChoiceColor = chooseChoice === ans ? '#2ECD81' : '#EE4F4F';
+  const chooseChoiceColor = chooseChoice === ans ? '#2ECD81' : '#cd5c5c';
   const notChooseChoiceColor = chooseChoice === 0 ? '#2F3136' : '#C4C4C4';
 
   const nextOpacity = chooseChoice === 0 || number === 5 ? 0 : 1;
   const nextVisible = chooseChoice === 0 || number === 5 ? true : false;
 
   const afterAns = chooseChoice === 0 ? false : true;
-  const widthAfterAns = chooseChoice === 0 ? 350 : 250;
+  const widthAfterAns = chooseChoice === 0 ? 350 : 300;
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: quesColor}}>
+      {/*header*/}
+      <View style={{flexDirection:'row', justifyContent:'flex-start', alignItems:'center',backgroundColor: '#202225', height:64}}>
+        <Icon onPress={()=>{navigation.navigate('LessonScreen')}} type="FontAwesome" name="xmark" style={{color:'white', marginRight:77, marginLeft:30}}/>
+        <Text style={{color:'white',fontWeight: 'bold',fontSize:18}}>Question</Text>
+      </View>
+
       {/*Quiz*/}
       <View style={{alignItems: 'center', marginTop: 40}}>
         <Text style={{color: 'white', fontSize: 18}}>
@@ -75,7 +75,7 @@ const QuestionScreen = ({navigation, route}) => {
       {/*Choice*/}
       <View style={{flex: 1, backgroundColor: 'white', marginTop: 100}}>
         {/*Choice1*/}
-        <View style={{flexDirection: 'row', marginTop: 70}}>
+        <View style={{flexDirection: 'row', marginTop: 20}}>
           <TouchableOpacity
             disabled={afterAns}
             style={{
@@ -125,31 +125,6 @@ const QuestionScreen = ({navigation, route}) => {
             }}
           />
         </View>
-        {/*Choice3*/}
-        {/* <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity
-            disabled={0 === chooseChoice ? choiceVisible : afterAns}
-            style={{
-              marginLeft: 10,
-              opacity: showOpacity,
-              color: 'white',
-              backgroundColor:
-                3 === chooseChoice ? chooseChoiceColor : notChooseChoiceColor,
-              marginTop: 30,
-              width: widthAfterAns,
-              height: 35,
-              borderRadius: 7,
-              justifyContent: 'center',
-              paddingLeft: 15,
-            }}
-            onPress={() => setChooseChoice(3)}>
-            <Text style={{ color: 'white', fontSize: 18 }}>C) {choice[2]}</Text>
-          </TouchableOpacity>
-          <Image
-            source={3 === ans ? correct : wrong}
-            style={{ opacity: 3 === chooseChoice ? 1 : 0, marginLeft: 5,marginTop: 30}}
-          />
-        </View> */}
         {/*Choice4*/}
         {showOpacity === 0 ? (
           <></>
@@ -221,30 +196,6 @@ const QuestionScreen = ({navigation, route}) => {
             </View>
           </>
         )}
-        {/* <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity
-            disabled={0 === chooseChoice ? choiceVisible : afterAns}
-            style={{
-              marginLeft: 10,
-              opacity: showOpacity,
-              color: 'white',
-              backgroundColor:
-                4 === chooseChoice ? chooseChoiceColor : notChooseChoiceColor,
-              marginTop: 30,
-              width: widthAfterAns,
-              height: 35,
-              borderRadius: 7,
-              justifyContent: 'center',
-              paddingLeft: 15,
-            }}
-            onPress={() => setChooseChoice(4)}>
-            <Text style={{ color: 'white', fontSize: 18 }}>D) {choice[3]}</Text>
-          </TouchableOpacity>
-          <Image
-            source={4 === ans ? correct : wrong}
-            style={{ opacity: 4 === chooseChoice ? 1 : 0, marginLeft: 5,marginTop: 30 }}
-          />
-        </View> */}
       </View>
 
       {/*Nextbtn*/}
@@ -302,6 +253,8 @@ const QuestionScreen = ({navigation, route}) => {
                 maxScore: numQues,
                 answer: ans,
                 choice: chooseChoice,
+                langg : lang,
+                langChapter : chapter
               });
             }
           }}>

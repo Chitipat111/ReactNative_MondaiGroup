@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, SafeAreaView} from 'react-native';
-import { Picker, Form } from 'native-base';
+import { Picker, Icon } from 'native-base';
 
 const LessonInfoScreen = ({navigation,route}) =>  {
 
@@ -18,7 +18,7 @@ const LessonInfoScreen = ({navigation,route}) =>  {
   else if(name === 'HTML'){
     IMAGE = IMAGE_HTML
   }
-
+  
   {/*Message state*/}
   const [message, setMessage] = useState();
   {/*picker state*/}
@@ -42,30 +42,30 @@ const LessonInfoScreen = ({navigation,route}) =>  {
     const applyMessage = ()=>{
       if(name === 'JAVA'){
           if(selectedValue === "Variable_&_Variable_type"){
-            setMessage("Variable Information 1")
+            setMessage("บทเรียนเรื่องตัวแปรและประเภทของตัวแปร")
           }
           else if(selectedValue === "Boolean"){
-            setMessage("Boolean Information 2")
+            setMessage("บทเรียนเรื่อง Boolean จริงหรือเท็จ")
           }
           else if(selectedValue === "การแสดงผล"){
-            setMessage("Output Information 3")
+            setMessage("บทเรียนเรื่องการแสดงผลลัพธ์")
           }
           else if(selectedValue === "Array"){
-            setMessage("Array Information 4")
+            setMessage("บทเรียนเรื่องการใช้ Array")
           }
           else if(selectedValue === "If"){
-            setMessage("If Information 5")
+            setMessage("บทเรียนเรื่องการใช้เงื่อนไข If condition")
           }
           else if(selectedValue === "Loop"){
-            setMessage("Loop Information 6")
+            setMessage("บทเรียนเรื่องการใช้ Loop วนค่า")
           }
       }
       else if(name === 'HTML'){
         if(selectedValue === "ความรู้เบื้องต้นเกี่ยวกับ HTML"){
-            setMessage("BasicHtml Information 1")
+            setMessage("บทเรียนเรื่องความรู้เบื้องต้นเกี่ยวกับ HTML")
           }
           else if(selectedValue === "การใช้งาน css เชื่อมต่อกับไฟล์ html"){
-            setMessage("Css Information 2")
+            setMessage("บทเรียนเรื่องการใช้งาน css เชื่อมต่อกับไฟล์ html")
           }
       }
       
@@ -75,7 +75,12 @@ const LessonInfoScreen = ({navigation,route}) =>  {
 
   return(
     <SafeAreaView style={{flex:1,backgroundColor:'#2F3136'}}>
-         
+    {/*header*/}
+      <View style={{flexDirection:'row', justifyContent:'flex-start', alignItems:'center',backgroundColor: '#202225', height:64}}>
+        <Icon onPress={()=>{navigation.navigate('LessonScreen')}} type="FontAwesome" name="angle-left" style={{color:'white', marginRight:35, marginLeft:30}}/>
+        <Text style={{color:'white',fontWeight: 'bold',fontSize:18}}>Lesson Infomation</Text>
+      </View>
+
     {/*image*/}
       <View style={{alignItems:'center',marginTop:80}}>
          <Image source={IMAGE}/>

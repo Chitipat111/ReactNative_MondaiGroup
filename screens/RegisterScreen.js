@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {  Text,  View,  SafeAreaView,  Button,  TextInput,  TouchableOpacity,} from 'react-native';
+import {  Text,  View,  SafeAreaView,  Button,  TextInput,  TouchableOpacity,ScrollView} from 'react-native';
 import {  Container,  Form,  Icon,  Content,  Item,  Input,  Label,} from 'native-base';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
@@ -22,6 +22,7 @@ const RegisterScreen = ({navigation}) => {
   return (
     //Mondai
     <SafeAreaView style={{ flex: 1, backgroundColor: '#2F3136' }}>
+      <ScrollView>
       <View
         style={{
           flexDirection: 'row',
@@ -137,6 +138,7 @@ const RegisterScreen = ({navigation}) => {
           </View>
         )}
       </Formik>
+      </ScrollView>
     </SafeAreaView>
   );
 };
